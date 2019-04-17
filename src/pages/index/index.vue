@@ -1,12 +1,12 @@
 <template>
   <div>
     <i-notice-bar icon="systemprompt" loop>
-    {{time}}诺贝尔文学奖获得者莫言将推新书，望周之！！！！！！！
+    {{time}}
 </i-notice-bar>
     <i-grid i-class="no-border">
     <i-grid-item i-class="no-border">
         <i-grid-icon>
-            <image src="../../static/images/bookFour.png" />
+            <image src="cloud://study-7d4e04.7374-study-7d4e04/排行榜.png" />
         </i-grid-icon>
         <i-grid-label>传记</i-grid-label>
     </i-grid-item>
@@ -62,7 +62,7 @@ export default {
     return {
       motto: 'Hello miniprograme',
       bookList: [],
-      time: '2019年4月3日',
+      time: '广告招商',
       userInfo: {
         nickName: 'mpvue',
         avatarUrl: 'http://mpvue.com/assets/logo.png'
@@ -80,17 +80,22 @@ export default {
   created () {
       const db = wx.cloud.database({ 
           env: 'study-7d4e04' })
-    db.collection('books').get().then(
-      res => {
-       console.log(res.data)
-        this.bookList = res.data
-      }
-    )
+    //db.collection('books').get().then(
+      //res => {
+      // console.log(res.data)
+       // this.bookList = res.data
+     // }
+    //)
 
     // let app = getApp()
-     wx.cloud.callFunction({ name: 'ADD' }).then(
+     wx.cloud.callFunction({ name: 'DELETE' }).then(
       res => {console.log(res)}
 )
+    this.$http.get('https://www.baidu.com', 'param').then((res)=>{
+        console.log('res', res)
+      }).catch(err=>{
+     })
+
   }
 }
 </script>
