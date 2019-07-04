@@ -107,7 +107,7 @@ let baseWebpackConfig = {
       from: '**/*.json',
       to: ''
     }], {
-  context: 'src/'
+      context: 'src/'
     }),
     new CopyWebpackPlugin([
       {
